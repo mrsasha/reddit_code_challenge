@@ -64,7 +64,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideGitHubApiServie(
+    fun provideGitHubApiService(
             okHttpClient: OkHttpClient,
             gsonConverterFactory: GsonConverterFactory,
             rxJava2CallAdapterFactory: RxJava2CallAdapterFactory): RedditApiService {

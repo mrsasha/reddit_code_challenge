@@ -1,6 +1,7 @@
 package info.sasasekulic.redditcodechallenge.screens
 
 import android.util.Log
+import info.sasasekulic.redditcodechallenge.api.models.Child
 import info.sasasekulic.redditcodechallenge.repositories.IPreferencesRepository
 import info.sasasekulic.redditcodechallenge.repositories.RedditDataRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -18,7 +19,7 @@ class MainPresenter @Inject constructor(prefsRepository: IPreferencesRepository,
 
     private lateinit var view: MainView
 
-    private lateinit var article: List<Object>
+    private lateinit var article: List<Child>
 
     private var loadArticleSubscription: Disposable = Disposables.disposed()
 
@@ -41,7 +42,7 @@ class MainPresenter @Inject constructor(prefsRepository: IPreferencesRepository,
                                 article = art
                                 preferencesRepository.setSavedArticleId(articleId)
                                 view.showLoading(false)
-                                Log.d("MAINPRESENTER", "loaded article!")
+                                Log.d("MAINPRESENTER", "loaded article = " + article)
                             },
                             { exception ->
                                 view.showError(exception)
