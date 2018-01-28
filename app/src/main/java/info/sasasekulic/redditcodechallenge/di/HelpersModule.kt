@@ -13,4 +13,8 @@ class HelpersModule {
 
     @Provides
     fun provideApplicationContext(app: App): Context = app.applicationContext
+
+    @Singleton
+    @Provides
+    fun provideGson(): Gson = GsonBuilder().create()
 }
