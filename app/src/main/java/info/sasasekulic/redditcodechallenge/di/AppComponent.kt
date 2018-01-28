@@ -7,7 +7,11 @@ import info.sasasekulic.redditcodechallenge.App
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = arrayOf(AndroidSupportInjectionModule::class))
+@Component(modules = arrayOf(
+        ActivityModule::class,
+        AndroidSupportInjectionModule::class,
+        BindsModule::class,
+        HelpersModule::class))
 interface AppComponent {
 
     fun inject(app: App)
