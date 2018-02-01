@@ -2,6 +2,7 @@ package info.sasasekulic.redditcodechallenge.screens
 
 import info.sasasekulic.redditcodechallenge.api.models.Child
 import info.sasasekulic.redditcodechallenge.api.models.LinkChild
+import info.sasasekulic.redditcodechallenge.api.models.ListingChild
 import info.sasasekulic.redditcodechallenge.repositories.IPreferencesRepository
 import info.sasasekulic.redditcodechallenge.repositories.RedditDataRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -43,6 +44,7 @@ class MainPresenter @Inject constructor(prefsRepository: IPreferencesRepository,
                                 preferencesRepository.setSavedArticleId(articleId)
                                 view.showLoading(false)
                                 view.showLink((article.get(0) as ListingChild).data.children.get(0) as LinkChild)
+                                view.showComments((article.get(1) as ListingChild).data.children)
                             },
                             { exception ->
                                 view.showError(exception)
@@ -63,6 +65,8 @@ class MainPresenter @Inject constructor(prefsRepository: IPreferencesRepository,
         fun showLoading(loading: Boolean)
 
         fun showLink(link: LinkChild)
+
+        fun showComments(comments: List<Child>)
     }
 
 }

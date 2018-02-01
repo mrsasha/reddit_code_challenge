@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/card_margin_bottom">
+
+    <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/comment_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_comment_body"
+                android:layout_marginStart="@dimen/default_margin_horizontal"
+                android:layout_marginEnd="@dimen/default_margin_horizontal"
+                android:layout_marginBottom="@dimen/default_margin_vertical"
+                tools:text="@tools:sample/lorem"/>
+
+        <TextView
+                android:id="@+id/comment_vote_number"
+                android:layout_below="@+id/comment_body"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_comment_votes"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/default_margin_horizontal"
+                android:layout_marginLeft="@dimen/default_margin_horizontal"
+                android:layout_marginBottom="@dimen/default_margin_vertical"
+                tools:text="@tools:sample/lorem"/>
+
+        <TextView
+                android:id="@+id/comment_date"
+                android:layout_toEndOf="@id/comment_vote_number"
+                android:layout_toRightOf="@id/comment_vote_number"
+                android:layout_alignBaseline="@id/comment_vote_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_comment_date"
+                android:textStyle="italic"
+                android:layout_marginStart="@dimen/default_margin_horizontal"
+                android:layout_marginLeft="@dimen/default_margin_horizontal"
+                android:layout_marginBottom="@dimen/default_margin_vertical"
+                tools:text="@tools:sample/lorem"/>
+
+        <TextView
+                android:id="@+id/comment_author"
+                android:layout_toEndOf="@id/comment_date"
+                android:layout_toRightOf="@id/comment_date"
+                android:layout_alignBaseline="@id/comment_vote_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_comment_author"
+                android:layout_marginStart="@dimen/default_margin_horizontal"
+                android:layout_marginEnd="@dimen/default_margin_horizontal"
+                android:layout_marginBottom="@dimen/default_margin_vertical"
+                android:lines="1"
+                android:ellipsize="end"
+                tools:text="@tools:sample/lorem"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

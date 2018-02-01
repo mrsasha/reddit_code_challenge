@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import dagger.android.AndroidInjection
 import info.sasasekulic.redditcodechallenge.R
+import info.sasasekulic.redditcodechallenge.api.models.Child
 import info.sasasekulic.redditcodechallenge.api.models.LinkChild
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -64,6 +65,12 @@ class MainActivity : AppCompatActivity(), MainPresenter.MainView, ArticleIdInput
 
         link_title.text = link.data.title
         link_url.text = link.data.url
+    }
+
+    override fun showComments(commentsList: List<Child>) {
+        Log.d("MainActivity", "loaded comments size = " + commentsList.size)
+
+        comments.adapter = CommentsAdapter(commentsList)
     }
 
     override fun onLoadArticleClick(articleId: String) {

@@ -7,4 +7,5 @@
     <string name="action_retry">Retry</string>
     <string name="action_load">Load</string>
     <string name="action_cancel">Cancel</string>
+    <string name="more">MORE</string>
 </resources>

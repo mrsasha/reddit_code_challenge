@@ -12,7 +12,7 @@ data class CommentChild(
             val id: String,
             val author: String,
             val score: Int,
-            val created_utc: Int,
-            val body_html: String
+            val created_utc: Long,
+            val body: String
     )
 }
