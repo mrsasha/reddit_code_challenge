@@ -4,19 +4,19 @@ import info.sasasekulic.redditcodechallenge.api.models.Child
 import info.sasasekulic.redditcodechallenge.api.models.LinkChild
 import info.sasasekulic.redditcodechallenge.api.models.ListingChild
 import info.sasasekulic.redditcodechallenge.repositories.IPreferencesRepository
-import info.sasasekulic.redditcodechallenge.repositories.RedditDataRepository
-import io.reactivex.android.schedulers.AndroidSchedulers
+import info.sasasekulic.redditcodechallenge.repositories.IRedditDataRepository
+import info.sasasekulic.redditcodechallenge.util.ISchedulerProvider
 import io.reactivex.disposables.Disposable
 import io.reactivex.disposables.Disposables
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
-class MainPresenter @Inject constructor(prefsRepository: IPreferencesRepository, redditRepository: RedditDataRepository) {
+class MainPresenter @Inject constructor(prefsRepository: IPreferencesRepository, redditRepository: IRedditDataRepository, schedulerProvider: ISchedulerProvider) {
 
     private val preferencesRepository = prefsRepository
 
     private val redditDataRepository = redditRepository
+
+    private val appSchedulerProvider = schedulerProvider
 
     private lateinit var view: MainView
 
@@ -37,7 +37,7 @@ class MainPresenter @Inject constructor(prefsRepository: IPreferencesRepository,
         } else {
             view.showLoading(true)
             loadArticleSubscription = redditDataRepository.getArticleComments(articleId)
-                    .observeOn(AndroidSchedulers.mainThread())
+                    .observeOn(appSchedulerProvider.ui())
                     .subscribe(
                             { art ->
                                 article = art

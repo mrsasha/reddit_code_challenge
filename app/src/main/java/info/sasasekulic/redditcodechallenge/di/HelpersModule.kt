@@ -8,6 +8,8 @@ import dagger.Module
 import dagger.Provides
 import info.sasasekulic.redditcodechallenge.App
 import info.sasasekulic.redditcodechallenge.api.childDeserializer
+import info.sasasekulic.redditcodechallenge.util.AppSchedulerProvider
+import info.sasasekulic.redditcodechallenge.util.ISchedulerProvider
 import javax.inject.Singleton
 
 @Module
@@ -19,6 +21,12 @@ class HelpersModule {
     @Singleton
     @Provides
     fun provideGson(): Gson = GsonBuilder()
-            .registerTypeAdapter (childDeserializer)
+            .registerTypeAdapter(childDeserializer)
             .create()
+
+    @Singleton
+    @Provides
+    fun provideSchedulerProvider(): ISchedulerProvider {
+        return AppSchedulerProvider()
+    }
 }
