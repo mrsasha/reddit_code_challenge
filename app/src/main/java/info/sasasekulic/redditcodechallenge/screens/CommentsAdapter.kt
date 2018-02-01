@@ -5,12 +5,10 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import info.sasasekulic.redditcodechallenge.R
-import info.sasasekulic.redditcodechallenge.api.models.Child
-import info.sasasekulic.redditcodechallenge.api.models.CommentChild
-import info.sasasekulic.redditcodechallenge.api.models.CommentChildHierarchical
-import info.sasasekulic.redditcodechallenge.api.models.MoreChild
+import info.sasasekulic.redditcodechallenge.api.models.*
 import info.sasasekulic.redditcodechallenge.inflate
 import kotlinx.android.synthetic.main.comment_item.view.*
+import kotlinx.android.synthetic.main.comment_rv.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -26,7 +24,7 @@ class CommentsAdapter(val comments: List<Child>) : RecyclerView.Adapter<Comments
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return when (viewType) {
-            COMMENT_LIST -> return ViewHolder(parent.inflate(R.layout.comment_item))
+            COMMENT_LIST -> return ViewHolder(parent.inflate(R.layout.comment_rv))
             MORE -> ViewHolder(parent.inflate(R.layout.comment_more))
             else -> ViewHolder(parent.inflate(R.layout.comment_item))
         }
@@ -59,10 +57,7 @@ class CommentsAdapter(val comments: List<Child>) : RecyclerView.Adapter<Comments
         }
 
         fun bind(comment: CommentChildHierarchical) {
-//            itemView.comment_body.text = comment.data.body_html
-//            itemView.comment_vote_number.text = comment.data.score.toString()
-//            itemView.comment_author.text = comment.data.author
-//            itemView.comment_date.text = comment.data.created_utc.toString() //TODO
+            itemView.comments_rv.adapter = CommentsAdapter((comment.data.replies as ListingChild).data.children)
         }
 
         fun bind(comment: MoreChild) {
