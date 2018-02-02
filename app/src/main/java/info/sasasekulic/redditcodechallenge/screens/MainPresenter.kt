@@ -10,7 +10,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.disposables.Disposables
 import javax.inject.Inject
 
-class MainPresenter @Inject constructor(prefsRepository: IPreferencesRepository, redditRepository: IRedditDataRepository, schedulerProvider: ISchedulerProvider) {
+open class MainPresenter @Inject constructor(prefsRepository: IPreferencesRepository, redditRepository: IRedditDataRepository, schedulerProvider: ISchedulerProvider) {
 
     private val preferencesRepository = prefsRepository
 
@@ -18,7 +18,7 @@ class MainPresenter @Inject constructor(prefsRepository: IPreferencesRepository,
 
     private val appSchedulerProvider = schedulerProvider
 
-    private lateinit var view: MainView
+    lateinit var view: MainView
 
     private lateinit var article: List<Child>
 
