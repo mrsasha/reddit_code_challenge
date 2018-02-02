@@ -66,7 +66,7 @@ open class MainPresenter @Inject constructor(prefsRepository: IPreferencesReposi
 
         fun showLink(link: LinkChild)
 
-        fun showComments(comments: List<Child>)
+        fun showComments(commentsList: List<Child>)
     }
 
 }

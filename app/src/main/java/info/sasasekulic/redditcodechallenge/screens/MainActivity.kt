@@ -1,8 +1,8 @@
 package info.sasasekulic.redditcodechallenge.screens
 
-import android.app.DialogFragment
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v4.app.DialogFragment
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
@@ -39,8 +39,9 @@ class MainActivity : AppCompatActivity(), MainPresenter.MainView, ArticleIdInput
     }
 
     override fun showInputDialog() {
-        if (supportFragmentManager.findFragmentByTag(ArticleIdInputDialog.TAG) != null) {
-            val fragment = supportFragmentManager.findFragmentByTag(ArticleIdInputDialog.TAG) as DialogFragment
+        val fragment = supportFragmentManager.findFragmentByTag(ArticleIdInputDialog.TAG)
+
+        if (fragment != null && fragment is DialogFragment) {
             fragment.dismiss()
         }
 
