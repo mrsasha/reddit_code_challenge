@@ -6,7 +6,7 @@ buildscript {
         supportLibVersion = '27.0.2'
         daggerVersion = '2.13'
         retrofitVersion = "2.3.0"
-        okHttpVersion = "3.8.1"
+        okHttpVersion = "4.7.0"
         rxjava_version = '2.1.8'
         rxandroid_version = '2.0.1'
         rxkotlin_version = '2.1.0'
