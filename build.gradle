@@ -11,7 +11,7 @@ buildscript {
         rxandroid_version = '2.0.1'
         rxkotlin_version = '2.1.0'
         kotson_version = '2.5.0'
-        testrunner_version = '1.0.1'
+        testrunner_version = '1.0.2'
         espresso_version = '3.0.1'
         junit_version = '4.12'
         mockito_version = '2.13.0'
