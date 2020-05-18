@@ -13,7 +13,7 @@ buildscript {
         kotson_version = '2.5.0'
         testrunner_version = '1.0.1'
         espresso_version = '3.0.1'
-        junit_version = '4.12'
+        junit_version = '4.13'
         mockito_version = '2.13.0'
     }
     repositories {
